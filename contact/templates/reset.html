@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{%if msg%}
+    <script>
+        window.alert('{{msg}}');
+    </script>
+{% endif%}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <title>Login Form | CodingLab</title> -->
+  {% load static %}
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <div class="title"><span>Forgot Your Password!</span></div>
+      <p>Enter your user email address</p>
+      <form action="/postReset/" method="POST">
+        {% csrf_token %}
+        <div class="row">
+          <i class="fa fa-envelope"></i>
+          <input type="email" name="email" id="email" placeholder="Enter Your email" required><br><br>
+                
+        </div>
+        <div class="row button">
+          <input type="submit" value="Send Reset Link">
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</body>
+
+</html>

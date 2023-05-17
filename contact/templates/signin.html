@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  {% load static %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+</head>
+
+<body>
+
+  <div class="uppersection">
+    <div class="wrapper">
+      <header>Aqum account sign in</header>
+      <form action="/postSignIn/" method="POST">
+        {% csrf_token %}
+        <div class="field email">
+          <div class="input-area">
+            <input type="email" name="email" value="" placeholder="Email">
+            <i class="icon fas fa-envelope"></i>
+            <i class="error error-icon fas fa-exclamation-circle"></i>
+            <br><br>
+          </div>
+          <div class="error error-txt">Email can't be blank</div>
+        </div>
+        <div class="field">
+          <div class="input-area">
+            <input type="password" name="pass" value="" placeholder="Password"><br><br>
+            <i class="icon fas fa-lock"></i>
+            <i class="error error-icon fas fa-exclamation-circle"></i>
+          </div>
+          <div class="error error-txt">Password can't be blank</div>
+        </div>
+        <div class="pass-txt"><a href="#" onclick="location.href='{% url 'reset' %} '">Forgot password?</a></div>
+        <input type="submit" name="" value="Login">
+
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="lowersection">
+    <h3>Don't have an Aqum Account?</h3>
+    <div class="b456">
+      <span><a class="createbtn" onclick="location.href='{% url 'signup' %} '">Create Account</a> </span>
+    </div>
+  </div>
+
+  <script src={% static 'javascript/signin.js' %}></script>
+
+</body>
+
+</html>

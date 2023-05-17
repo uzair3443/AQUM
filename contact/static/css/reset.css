@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+body{
+    background-image: url("/static/images/login_background.jpg");
+    overflow: hidden;
+}
+::selection{
+  background: rgba(26,188,156,0.3);
+}
+.container{
+  max-width: 520px;
+  padding: 0 20px;
+  margin: 170px auto;
+}
+.wrapper{
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
+}
+.wrapper .title{
+  height: 90px;
+  background: rgb(7, 99, 88);
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper p{
+  color: #4d4949;
+  font-size: large;
+  padding-top: 10px;
+  text-align: center;
+}
+.wrapper form{
+  padding: 15px 25px 25px 25px;
+}
+.wrapper form .row{
+  height: 45px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.wrapper form .row input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 60px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+form .row input::placeholder{
+  color: #999;
+}
+.wrapper form .row i{
+  position: absolute;
+  width: 47px;
+  height: 100%;
+  color: #fff;
+  font-size: 18px;
+  background: rgb(7, 99, 88);
+  border: 1px solid rgb(7, 99, 88);
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.wrapper form .button input{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 0px;
+  background: rgb(7, 99, 88);
+  border: 1px solid rgb(7, 99, 88);
+  cursor: pointer;
+}

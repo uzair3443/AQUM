@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <title>Registeration Form</title>
+</head>
+
+
+<body>
+  <form  id="registration-form" action="/postsignup/" method="POST">
+    {% csrf_token %}
+    <h1> Create Your AQUM Account</h1>
+    <h2>Already have AQUM Account?<span> <a onclick="location.href='{% url 'signin' %} '" > Sign In</a></span></h2>
+    <div class="horizontal">
+        <div class="left">
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" required>
+        </div>
+
+        <div class="right">
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" required>
+        </div>
+    </div>
+    <label for="country">Country:</label>
+    <select id="country" name="country" required>
+        <option value="">Select a country</option>
+        <option value="Pakistan">Pakistan</option>
+    </select>
+    <div class="horizontal">
+        <div class="left">
+            <label for="province">Province:</label>
+            <select id="province" name="province" required>
+                <option value="">Province</option>
+                <option value="">Punjab</option>
+                <option value="">Sindh</option>
+                <option value="">Balochistan</option>
+                <option value="">Khyber Pakhtunkhwa</option>
+                <option value="">Islamabad Capital Territory</option>
+            </select>
+        </div>
+
+        <div class="right">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+        </div>
+    </div>
+
+    <label for="address1">Address Line 1:</label><br>
+    <input type="text" id="address1" name="Address1" required><br>
+
+    <label for="address2">Address Line 2:</label><br>
+    <input type="text" id="address2" name="Address2"><br>
+
+    <label for="Society">Scoiety Name</label><br>
+    <input type="text" id="Society" name="Society"><br>
+
+    <div class="horizontal">
+        <div class="left">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="right">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+    </div>
+    <div class="horizontal">
+        <div class="parent">
+            <div class="left">
+                <label for="password">Password:</label>
+                <input type="password" id="password"
+                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                    title="Must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+                    required name='password1'>
+                <br>
+                <span class="requirement" id="uppercase">&#x2713; Uppercase letter (A-Z)</span><br>
+                <span class="requirement" id="lowercase">&#x2713; Lowercase letter (a-z)</span><br>
+                <span class="requirement" id="number">&#x2713; Number 123...</span><br>
+                <span class="requirement" id="special">&#x2713; SpecialCharacter !@#</span><br>
+                <span class="requirement" id="length">&#x2713; At least 8 charcter</span><br>
+                <br>
+            </div>
+            <div class="right">
+                <label for="password2">Confirm Password:</label>
+                <input type="password" id="password2" name="password2" required>
+            </div>
+        </div>
+    </div>
+                <!-- ***** display message ***** -->
+  {% if messages %}
+  <div class="messages" style ="text-align: center">
+    {% for message in messages %}
+      <button  class="button" style="text-align: center; color: #fff; background-color: red; border: 0.5px solid black; border-radius: 6px;">
+        {% if messages.tags == "error" %}
+          <i class="fa fa-exclamation" aria-hidden="true"></i>
+          {% else %}
+            <i class="fa fa-check" aria-hidden="true"></i>
+        {% endif %}
+        &nbsp;{{message}}
+      </button>
+    {% endfor %}
+  </div>
+  {% endif %}
+<!-- ***** display message ***** -->
+    <input type="submit" value="Submit">
+</form>
+
+<script src={% static 'javascript/register.js' %}></script>
+</body>
+</html>
